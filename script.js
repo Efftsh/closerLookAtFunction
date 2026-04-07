@@ -51,3 +51,31 @@ const newPassport = function (person) {
 };
 newPassport(iffat);
 checkIn(flight, iffat); */
+
+/* //Function Accepting Callback Functions
+//////////////////////
+//generic function
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+const upperFirstWord = function (str) {
+  const [firstWord, ...otherWord] = str.split(' ');
+  return [firstWord.toUpperCase(), ...otherWord].join(' ');
+};
+
+//transformer
+const transformer = function (str, fn) {
+  console.log(`Original String: ${str}`);
+  console.log(`Transformed String: ${fn(str)}`);
+  console.log(`Transformed by: ${fn.name}`);
+};
+
+transformer('Javascript is the best', upperFirstWord);
+transformer('Javascript is the best', oneWord);
+
+const high5 = function () {
+  console.log('👋');
+};
+
+document.body.addEventListener('click', high5);
+['iffat', 'ash', 'izam'].forEach(high5); */
