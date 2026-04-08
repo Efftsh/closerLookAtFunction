@@ -98,3 +98,78 @@ greetArrow('YO')('Farra');
 const result = greetArrow('Yo');
 result('Farra');
  */
+
+/* //The Call and Apply Method
+//////////////////////
+const airAsia = {
+  name: 'Air Asia',
+  iaitaCode: 'AA',
+  bookings: [],
+  book(flightNumber, name) {
+    console.log(
+      `${name} booked a seat on ${this.name} flight ${this.iaitaCode}${flightNumber}`,
+    );
+    this.bookings.push({ flight: `${this.iaitaCode}${flightNumber}`, name });
+  },
+};
+airAsia.book(123, 'Iffat');
+
+const MalaysiaAirlines = {
+  name: 'Malaysia Airlines',
+  iaitaCode: 'MAS',
+  bookings: [],
+};
+
+const swiss = {
+  name: 'Swiss Airlines',
+  iaitaCode: 'LX',
+  bookings: [],
+};
+
+//Call Method(Function Method)
+const book = airAsia.book;
+book.call(MalaysiaAirlines, 332, 'Ashizam');
+console.log(MalaysiaAirlines);
+book.call(swiss, 553, 'Izam');
+console.log(swiss);
+book.call(airAsia, 312, 'AshIffat');
+console.log(airAsia);
+
+//Apply Method(Function Method)
+const flightData = [889, 'Pyro'];
+book.apply(airAsia, flightData);
+book.call(MalaysiaAirlines, ...flightData);
+
+//Bind Mehtod(Function Method)
+const bookMas = book.bind(MalaysiaAirlines);
+const bookSw = airAsia.book.bind(swiss);
+const bookAa = book.bind(airAsia);
+
+bookMas(577, 'Thosiro');
+
+const bookMas23 = book.bind(MalaysiaAirlines, 23);
+bookMas23('Zaira');
+bookMas23('Zaidi');
+
+//With EventListerner
+airAsia.planes = 300;
+airAsia.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+
+const buyPlanebtn = document.querySelector('.buy');
+buyPlanebtn.addEventListener('click', airAsia.buyPlane.bind(airAsia));
+
+//Partial Application
+const addTax = (rate, value) => console.log(value + value * rate);
+
+const addVAT = addTax.bind(null, 0.23);
+
+addVAT(400);
+
+const addTax2 = rate => value => console.log(value + value * rate);
+const addVAT2 = addTax2(0.23);
+addVAT2(400);
+ */
