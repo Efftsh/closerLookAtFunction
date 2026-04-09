@@ -98,7 +98,7 @@ const result = greetArrow('Yo');
 result('Farra');
  */
 
-/* //The Call and Apply Method
+/* //The Call, Apply, and Bind Method
 //////////////////////
 const airAsia = {
   name: 'Air Asia',
@@ -172,3 +172,24 @@ const addTax2 = rate => value => console.log(value + value * rate);
 const addVAT2 = addTax2(0.23);
 addVAT2(400);
  */
+
+//Immediately Invoking Function Expression(IIFE)
+//////////////////////
+//Normal Function Expressin
+const runOnce = function () {
+  console.log('This will never run again');
+};
+runOnce();
+
+//Only run once function Expression
+(function () {
+  console.log('This function Expression will never run again');
+})();
+
+(() => {
+  console.log('This Arrow function will never run again');
+})();
+{
+  var privateNum = 20;
+}
+console.log(privateNum);
