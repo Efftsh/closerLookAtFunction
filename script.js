@@ -173,7 +173,7 @@ const addVAT2 = addTax2(0.23);
 addVAT2(400);
  */
 
-//Immediately Invoking Function Expression(IIFE)
+/* //Immediately Invoking Function Expression(IIFE)
 //////////////////////
 //Normal Function Expressin
 const runOnce = function () {
@@ -193,3 +193,18 @@ runOnce();
   var privateNum = 20;
 }
 console.log(privateNum);
+ */
+
+//Closure
+//////////////////////
+const secureBooking = function () {
+  let passengerCount = 0;
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passenger`);
+  };
+};
+const booker = secureBooking();
+booker();
+booker();
+booker();
